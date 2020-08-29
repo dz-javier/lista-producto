@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { CheckboxControlValueAccessor } from '@angular/forms';
+import { ProductoService } from '../services/producto.service';
+import { Producto } from '../model/producto';
 
 @Component({
   selector: 'app-home',
@@ -8,37 +10,18 @@ import { CheckboxControlValueAccessor } from '@angular/forms';
 })
 export class HomePage {
   
-  private productos = [
-    {
-    "id": 1,
-    "nombre": "Celular",
-    "precio": 1500,
-    "stock" : 10,
-    "cantidad": 1500,
-    "imagen" :  "http://ingenieria.uner.edu.ar/referencia/imagenes/logo_ingenieria.png"
-  },
-  {
-    "id": 2,
-    "nombre": "Tablet",
-    "precio": 3000,
-    "stock" : 25,
-    "cantidad": 3000,
-    "imagen" :  "http://ingenieria.uner.edu.ar/referencia/imagenes/logo_ingenieria.png"
-  },
+  private productos;
 
-  {
-    "id": 3,
-    "nombre": "Tv",
-    "precio": 10000,
-    "stock" : 0,
-    "cantidad": 3000,
-    "imagen" :  "http://ingenieria.uner.edu.ar/referencia/imagenes/logo_ingenieria.png"
-  }
-  ];
+     constructor(private prodSrv:ProductoService) {
 
-    constructor() {
-
-    
+       let prod = new Producto();
+       prod.id = "4";
+       prod.stock = 10;
+       prod.nombre = "led"
+       prod.precio = 1000;
+       prod.imagen = "none";
+       //this.prodSrv.agregar(prod);
+       this.productos = prodSrv.obtenerTodos();
   }
 
 }

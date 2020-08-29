@@ -3,6 +3,10 @@
     <ion-title>
       Lista de productos
     </ion-title>
+    <ion-avatar>
+      i <ion-badge color="primary" mode="ios">42</ion-badge>
+      <!-- <img [src]="../../src/assets/icon/favicon.png" /> -->
+    </ion-avatar>
   </ion-toolbar>
 </ion-header>
 
@@ -10,7 +14,7 @@
   <ion-list>
   <ion-item *ngFor="let prod of productos" [routerLink]="['/home',prod.id]">
     <ion-label>{{prod.nombre}}</ion-label>
-    <ion-avatar slot="end">
+    <ion-avatar slot="start">
       <img [src]="prod.imagen"/>
     </ion-avatar>
     <ion-label color ="danger">{{prod.precio}} </ion-label>
