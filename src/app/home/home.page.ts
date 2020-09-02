@@ -11,7 +11,8 @@ import { Producto } from '../model/producto';
 export class HomePage {
   
   private productos;
-
+  private carrito: Array<Producto>;
+  
      constructor(private prodSrv:ProductoService) {
 
        let prod = new Producto();
@@ -20,8 +21,9 @@ export class HomePage {
        prod.nombre = "led"
        prod.precio = 1000;
        prod.imagen = "none";
-       //this.prodSrv.agregar(prod);
+       this.prodSrv.agregar(prod);
        this.productos = prodSrv.obtenerTodos();
+       this.carrito = prodSrv.carrito;
   }
 
 }

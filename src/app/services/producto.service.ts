@@ -6,20 +6,21 @@ import { Producto } from '../model/producto';
 })
   
 export class ProductoService {
-  private productos : Array<Producto> = [
+  public carrito: Array<Producto> = [];
+  private productos: Array<Producto> = [
     {
     "id": "1",
     "nombre": "Celular",
     "precio": 1500,
     "stock" : 10,
-     "imagen" :  "https://dummyimage.com/200/857b85/0011ff.png&text=Un+celular+copado"
+     "imagen" :  "https://dummyimage.com/150/857b85/0011ff.png&text=Un+celular+copado"
   },
   {
     "id": "2",
     "nombre": "Tablet",
     "precio": 3000,
     "stock" : 25,
-    "imagen" :  "https://dummyimage.com/250/857b85/0011ff.png&text=La+Tableta!"
+    "imagen" :  "https://dummyimage.com/150/857b85/0011ff.png&text=La+Tableta!"
   },
 
   {
@@ -27,7 +28,7 @@ export class ProductoService {
     "nombre": "TV Smart",
     "precio": 10000,
     "stock" : 5,
-    "imagen" :  "https://dummyimage.com/250/857b85/0011ff.png&text=La+tele"
+    "imagen" :  "https://dummyimage.com/150/857b85/0011ff.png&text=La+tele"
   }
   ];
 
@@ -44,4 +45,5 @@ export class ProductoService {
   public agregar(prod: Producto) { 
     this.productos.push(prod);
   }
+
 }

@@ -24,5 +24,7 @@ export class ProductoPage implements OnInit {
         this.producto = this.prodSrv.obtenerPorId(paramMap.get("id"));
     })
   }
-
+  public agregarCarrito(): void { 
+    this.prodSrv.carrito.push(this.producto); 
+  }
 }
