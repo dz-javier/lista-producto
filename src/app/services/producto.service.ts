@@ -12,22 +12,22 @@ export class ProductoService {
     "nombre": "Celular",
     "precio": 1500,
     "stock" : 10,
-     "imagen" :  "http://ingenieria.uner.edu.ar/referencia/imagenes/logo_ingenieria.png"
+     "imagen" :  "https://dummyimage.com/200/857b85/0011ff.png&text=Un+celular+copado"
   },
   {
     "id": "2",
     "nombre": "Tablet",
     "precio": 3000,
     "stock" : 25,
-    "imagen" :  "http://ingenieria.uner.edu.ar/referencia/imagenes/logo_ingenieria.png"
+    "imagen" :  "https://dummyimage.com/250/857b85/0011ff.png&text=La+Tableta!"
   },
 
   {
     "id": "3",
-    "nombre": "Tv",
+    "nombre": "TV Smart",
     "precio": 10000,
-    "stock" : 0,
-    "imagen" :  "http://ingenieria.uner.edu.ar/referencia/imagenes/logo_ingenieria.png"
+    "stock" : 5,
+    "imagen" :  "https://dummyimage.com/250/857b85/0011ff.png&text=La+tele"
   }
   ];
 

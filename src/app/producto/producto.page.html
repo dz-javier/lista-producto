@@ -1,13 +1,34 @@
-<ion-header>
-  <ion-toolbar >
-    <ion-buttons slot="start">
-      <ion-back-button defaultHref="/home"></ion-back-button>
-    </ion-buttons>
-    <ion-title>Producto</ion-title>
-  </ion-toolbar>
-</ion-header>
+    <ion-header>
+      <ion-toolbar >
+        <ion-buttons slot="start">
+          <ion-back-button defaultHref="/home"></ion-back-button>
+        </ion-buttons>
+        <ion-title>{{producto.nombre}}</ion-title>
+      </ion-toolbar>
+    </ion-header>
 
-<ion-content>
+  <ion-content>
+    
+    <ion-list>
+      <ion-item>
+       <img [src]="producto.imagen" class = "right-image"/>
+      </ion-item>
 
-{{producto.precio}}
-</ion-content>
+      <ion-item slot=end>
+        <ion-label > Código Identificadr: {{producto.id}}</ion-label>
+      </ion-item>
+      <ion-item>
+        <ion-label >Stock: {{producto.stock}}</ion-label>
+      </ion-item> 
+      <ion-item>
+        <ion-label > Precio por unidad: $ {{producto.precio}}</ion-label> 
+      </ion-item> 
+      
+    </ion-list>
+    
+      
+    <ion-button (click)="onClick()" expand="block" shape="round">
+      comprar
+    </ion-button>
+
+  </ion-content>
