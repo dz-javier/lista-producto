@@ -3,9 +3,9 @@
     <ion-title>
       Lista de productos
     </ion-title>
-    <ion-avatar slot="end">
+    <ion-avatar (click)="getTotalCarrito()" slot="end">
         <ion-badge class ="cantidadCarrito" color="primary" mode="md">{{carrito.length}}</ion-badge>
-        <ion-img class = "img" src="../../assets/carrito.png"></ion-img>    
+        <ion-img class = "img" src="../../assets/carrito.png" ></ion-img>    
     </ion-avatar>
   </ion-toolbar>
 </ion-header>
@@ -20,6 +20,8 @@
     <ion-label color ="danger">{{prod.precio}} </ion-label>
     <ion-label *ngIf="prod.stock>0" color="primary"> CON STOCK</ion-label>
     <ion-label *ngIf="prod.stock==0" color ="danger">SIN STOCK</ion-label>
+  
+
   </ion-item>  
   </ion-list>
 </ion-content>

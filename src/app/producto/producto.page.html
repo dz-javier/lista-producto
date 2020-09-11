@@ -11,7 +11,12 @@
     
     <ion-list>
       <ion-item>
+        <div class="contenedor">
        <img class ="tamañoImg" [src]="producto.imagen" class = "right-image"/>
+       <ion-text color="primary">
+         <h1>Awesome text</h1>
+       </ion-text>
+      </div>
       </ion-item>
 
       <ion-item slot=end>
@@ -41,10 +46,15 @@
       </ion-item>
     </ion-list>
     
-      
+    <ion-item>
+  
     <ion-button (click)="agregarCarrito()" expand="block" shape="round" [disable]="producto.stock==0">
       <ion-icon slot="start" name="cart"></ion-icon>
       comprar
     </ion-button>
-
+    <ion-button (click)="deleteProducto()" expand="block" shape="round" >
+      <ion-icon slot="start" name="trash"></ion-icon>
+      eliminar
+    </ion-button>
+  </ion-item>
   </ion-content>

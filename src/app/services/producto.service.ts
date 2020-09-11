@@ -1,49 +1,50 @@
 import { Injectable } from '@angular/core';
 import { Producto } from '../model/producto';
-
+import { HttpClient } from '@angular/common/http';
+import { LoadingController } from '@ionic/angular';
 @Injectable({
   providedIn: 'root'
 })
   
 export class ProductoService {
   public carrito: Array<Producto> = [];
-  private productos: Array<Producto> = [
-    {
-    "id": "1",
-    "nombre": "Celular",
-    "precio": 1500,
-    "stock" : 10,
-     "imagen" :  "https://dummyimage.com/150/857b85/0011ff.png&text=Un+celular+copado"
-  },
-  {
-    "id": "2",
-    "nombre": "Tablet",
-    "precio": 3000,
-    "stock" : 25,
-    "imagen" :  "https://dummyimage.com/150/857b85/0011ff.png&text=La+Tableta!"
-  },
+  private path = "http://192.168.1.59:3000";
+  constructor(private httpClient:HttpClient)   { }
+  
+  
+  public obtenerTodos() {
 
-  {
-    "id": "3",
-    "nombre": "TV Smart",
-    "precio": 10000,
-    "stock" : 5,
-    "imagen" :  "https://dummyimage.com/150/857b85/0011ff.png&text=La+tele"
+      return this.httpClient.get<Producto[]>(this.path + "/productos");
+  
   }
-  ];
+  
+  public obtenerPorId(id: string) {
+    return this.httpClient.get<Producto[]>(this.path + "/productos/"+id);
 
-  constructor() { }
-  public obtenerTodos() { 
-    return this.productos;
-  }
-  public obtenerPorId(id: string) { 
-    for (let prod of this.productos) { 
+   /* for (let prod of this.productos) { 
       if (prod.id == id)
         return (prod)
-    }
+    }*/
   }
-  public agregar(prod: Producto) { 
-    this.productos.push(prod);
+  public agregarProducto(prod: Producto) { 
+  //  this.productos.push(prod);
+  // es necesario hacer return ?
+    return this.httpClient.post(this.path + "/productos/", prod);
+  }
+  public deleteProducto(prod: Producto) { 
+    return this.httpClient.delete(this.path + "/productos/" + prod.id)
   }
 
+  public getCarrito(){ 
+    return this.carrito;
+  }
+
+  public sumarCarrito() {
+    let total = 0;
+    for (let prod of this.carrito) {
+      total = total + prod.precio;
+    
+    }
+    return total;
+  }
 }

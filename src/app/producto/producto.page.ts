@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { ProductoService } from '../services/producto.service';
+import { Producto } from '../model/producto';
 
 @Component({
   selector: 'app-producto',
@@ -9,7 +10,7 @@ import { ProductoService } from '../services/producto.service';
 })
 // implements implementa una interfaz, implementa ngOnInit()
 export class ProductoPage implements OnInit {
-  private producto;
+  private producto;// = new Producto();
   // inyección de dependencias los objetos son singleton ahorra ram en usuarios
   constructor(private activateRoute: ActivatedRoute,private prodSrv:ProductoService) { }
 
@@ -21,9 +22,14 @@ export class ProductoPage implements OnInit {
     // => resumen de armar una función, como una función lambda
     this.activateRoute.paramMap.subscribe(
       paramMap => {
-        this.producto = this.prodSrv.obtenerPorId(paramMap.get("id"));
-    })
+        this.producto = this.prodSrv.obtenerPorId(paramMap.get("id"))
+          .subscribe(datos => {
+            this.producto = datos;
+          });
+        
+      });
   }
+  
   public agregarCarrito(): void { 
     this.prodSrv.carrito.push(this.producto); 
   }
