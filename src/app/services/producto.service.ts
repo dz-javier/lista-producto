@@ -32,7 +32,9 @@ export class ProductoService {
     return this.httpClient.post(this.path + "/productos/", prod);
   }
   public deleteProducto(prod: Producto) { 
-    return this.httpClient.delete(this.path + "/productos/" + prod.id)
+   // alert(this.path + "/productos/" + prod.id);
+    return this.httpClient.delete(this.path + "/productos/" + prod.id);
+
   }
 
   public getCarrito(){ 

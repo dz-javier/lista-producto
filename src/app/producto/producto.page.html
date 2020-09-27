@@ -52,7 +52,7 @@
       <ion-icon slot="start" name="cart"></ion-icon>
       comprar
     </ion-button>
-    <ion-button (click)="deleteProducto()" expand="block" shape="round" >
+    <ion-button (click)="borrarProducto()" expand="block" shape="round" [routerLink]="['/home']" >
       <ion-icon slot="start" name="trash"></ion-icon>
       eliminar
     </ion-button>

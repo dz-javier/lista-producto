@@ -29,7 +29,15 @@ export class ProductoPage implements OnInit {
         
       });
   }
+  public borrarProducto(): void {
+    this.prodSrv.deleteProducto(this.producto).
+      subscribe(response => {
+        delete this.producto;
+         this.prodSrv.obtenerTodos();
+      });
   
+  }
+
   public agregarCarrito(): void { 
     this.prodSrv.carrito.push(this.producto); 
   }
